@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp">
@@ -18,12 +19,29 @@
         android:id="@+id/studentNameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="Student Name"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@id/studentImageView"
         app:layout_constraintEnd_toStartOf="@id/studentCheckbox"
-        app:layout_constraintTop_toTopOf="@id/studentImageView"
-        app:layout_constraintBottom_toBottomOf="@id/studentImageView" />
+        app:layout_constraintStart_toEndOf="@id/studentImageView"
+        app:layout_constraintTop_toTopOf="@id/studentImageView" />
+
+    <TextView
+        android:id="@+id/studentIdTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="8dp"
+        android:text="Student Id"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/studentCheckbox"
+        app:layout_constraintStart_toEndOf="@+id/studentImageView"
+        app:layout_constraintTop_toBottomOf="@+id/studentNameTextView" />
+
+
 
     <CheckBox
         android:id="@+id/studentCheckbox"
@@ -31,5 +49,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:buttonTint="@color/checkbox_color"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

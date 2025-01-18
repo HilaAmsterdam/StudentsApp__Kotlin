@@ -19,6 +19,7 @@ class StudentsAdapter(
     class StudentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val studentImageView: ImageView = view.findViewById(R.id.studentImageView)
         val studentNameTextView: TextView = view.findViewById(R.id.studentNameTextView)
+        val studentIdTextView: TextView = view.findViewById(R.id.studentIdTextView)
         val studentCheckbox: CheckBox = view.findViewById(R.id.studentCheckbox)
     }
 
@@ -30,17 +31,15 @@ class StudentsAdapter(
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
         val student = students[position]
 
-        // Set the student name and checkbox state
-        holder.studentNameTextView.text = "${student.name} (${student.id})"
-        holder.studentCheckbox.setOnCheckedChangeListener(null) // Reset listener to prevent unwanted triggers
+        holder.studentNameTextView.text = "Name: ${student.name}"
+        holder.studentIdTextView.text = "ID: ${student.id}"
+        holder.studentCheckbox.setOnCheckedChangeListener(null)
         holder.studentCheckbox.isChecked = student.isChecked
 
-        // Handle checkbox click
         holder.studentCheckbox.setOnCheckedChangeListener { _, isChecked ->
             onCheckBoxClicked(position, isChecked)
         }
 
-        // Handle row click
         holder.itemView.setOnClickListener {
             onStudentClicked(position)
         }

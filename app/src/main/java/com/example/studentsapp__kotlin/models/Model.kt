@@ -20,10 +20,8 @@ class Model private constructor() {
         val gson = Gson()
         val type = object : TypeToken<MutableList<Student>>() {}.type
 
-        // Convert JSON string into a list of Students
         val loadedList: MutableList<Student> = gson.fromJson(json, type) ?: mutableListOf()
 
-        // Clear current and add all from loaded list
         students.clear()
         students.addAll(loadedList)
     }

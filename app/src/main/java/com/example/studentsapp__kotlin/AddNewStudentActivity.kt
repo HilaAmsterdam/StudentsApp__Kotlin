@@ -47,19 +47,15 @@ class AddNewStudentActivity : AppCompatActivity() {
             val isChecked = checkBox.isChecked
 
             if (name.isNotEmpty() && id.isNotEmpty() && phone.isNotEmpty() && address.isNotEmpty()) {
-                // Create a new student object
                 val newStudent = Student(
                     name = name,
                     id = id,
-                    avatarUrl = "default_avatar_url", // or any placeholder you want
+                    avatarUrl = "default_avatar_url",
                     isChecked = isChecked,
                     phone = phone,
                     address = address
                 )
-
                 Model.shared.students.add(newStudent)
-
-                // **Save** to SharedPreferences so it's persisted
                 Model.shared.saveStudents(this)
 
                 savedMessageTextView.text = "Student: $name (ID: $id) is saved!"
