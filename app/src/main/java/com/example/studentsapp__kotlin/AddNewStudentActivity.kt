@@ -9,8 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.studentsapp__kotlin.models.Student
 import com.example.studentsapp__kotlin.models.Model
+import com.example.studentsapp__kotlin.models.Student
 
 class AddNewStudentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,10 +40,10 @@ class AddNewStudentActivity : AppCompatActivity() {
 
         saveButton.setOnClickListener {
 
-            val name = nameEditText.text.toString()
-            val id = idEditText.text.toString()
-            val phone = phoneEditText.text.toString()
-            val address = adressEditText.text.toString()
+            val name = nameEditText.text.toString().trim()
+            val id = idEditText.text.toString().trim()
+            val phone = phoneEditText.text.toString().trim()
+            val address = adressEditText.text.toString().trim()
             val isChecked = checkBox.isChecked
 
             if (name.isNotEmpty() && id.isNotEmpty() && phone.isNotEmpty() && address.isNotEmpty()) {
@@ -51,13 +51,16 @@ class AddNewStudentActivity : AppCompatActivity() {
                 val newStudent = Student(
                     name = name,
                     id = id,
-                    avatarUrl = "default_avatar_url", // Replace with an actual URL or a file path if needed
+                    avatarUrl = "default_avatar_url", // or any placeholder you want
                     isChecked = isChecked,
                     phone = phone,
                     address = address
                 )
 
                 Model.shared.students.add(newStudent)
+
+                // **Save** to SharedPreferences so it's persisted
+                Model.shared.saveStudents(this)
 
                 savedMessageTextView.text = "Student: $name (ID: $id) is saved!"
                 setResult(RESULT_OK)
