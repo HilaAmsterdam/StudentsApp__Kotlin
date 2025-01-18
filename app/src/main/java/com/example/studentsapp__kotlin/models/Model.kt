@@ -1,23 +1,41 @@
 package com.example.studentsapp__kotlin.models
 
-class Model private constructor(){
-    val students: MutableList<Student> = ArrayList()
+import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+
+class Model private constructor() {
+    // Start with an empty list
+    val students: MutableList<Student> = mutableListOf()
 
     companion object {
         val shared = Model()
     }
 
-    init {
-        for (i in 0..20) {
-            val student = Student(
-                name = "Name $i",
-                id = "Student ID:$i",
-                avatarUrl = "",
-                isChecked = false,
-                phone = "555-000$i",
-                address = "Address $i"
-            )
-            students.add(student)
-        }
+
+    fun loadStudents(context: Context) {
+        val sharedPref = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val json = sharedPref.getString("students_key", "[]") // Defaults to "[]" if not found
+
+        val gson = Gson()
+        val type = object : TypeToken<MutableList<Student>>() {}.type
+
+        // Convert JSON string into a list of Students
+        val loadedList: MutableList<Student> = gson.fromJson(json, type) ?: mutableListOf()
+
+        // Clear current and add all from loaded list
+        students.clear()
+        students.addAll(loadedList)
+    }
+
+    fun saveStudents(context: Context) {
+        val sharedPref = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
+        val gson = Gson()
+        val json = gson.toJson(students)
+
+        editor.putString("students_key", json)
+        editor.apply()
     }
 }
