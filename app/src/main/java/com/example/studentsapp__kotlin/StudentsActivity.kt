@@ -26,7 +26,8 @@ class StudentsActivity : AppCompatActivity() {
             onStudentClicked = { position ->
                 val student: Student = Model.shared.students[position]
                 val intent = Intent(this, StudentDetails::class.java)
-                intent.putExtra("EXTRA_STUDENT", student)
+                intent.putExtra("student", student)
+                intent.putExtra("position", position)
                 startActivity(intent)
             },
             onCheckBoxClicked = { position, isChecked ->
