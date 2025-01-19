@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".AddNewStudentActivity">
 
     <Button
         android:id="@+id/add_new_student_activity_cancel_button"
@@ -29,8 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/add_new_student_activity_name_edit_text"
@@ -40,11 +38,9 @@
         android:layout_marginEnd="8dp"
         android:hint="Username"
         android:textColor="@color/black"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextView_name"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/TextView_name" />
 
 
     <EditText
@@ -55,12 +51,10 @@
         android:layout_marginEnd="8dp"
         android:hint="ID"
         android:textColor="@color/black"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextView2"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/TextView2" />
 
     <EditText
         android:id="@+id/add_new_student_activity_phone_edit_text"
@@ -70,12 +64,10 @@
         android:layout_marginEnd="8dp"
         android:hint="phone"
         android:textColor="@color/black"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
         android:id="@+id/add_new_student_activity_adress_edit_text"
@@ -85,12 +77,10 @@
         android:layout_marginEnd="8dp"
         android:hint="adress"
         android:textColor="@color/black"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"/>
 
     <Button
         android:id="@+id/add_new_student_activity_save_button"
@@ -111,7 +101,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="8dp"
-        android:text="Name"
+        android:text="Name: "
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/add_new_student_activity_name_edit_text"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,7 +115,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="ID"
+        android:text="ID: "
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/add_new_student_activity_id_edit_text"
         app:layout_constraintStart_toStartOf="parent"
@@ -136,8 +126,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Phone"
+        android:text="Phone: "
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/add_new_student_activity_phone_edit_text"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,7 +141,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Adress"
+        android:text="Adress: "
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
