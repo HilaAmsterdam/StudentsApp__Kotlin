@@ -30,10 +30,7 @@
         <activity
             android:name=".AddNewStudentActivity"
             android:exported="false" />
-        <activity
-            android:name=".adapter.StudentsAdapter"
-            android:exported="false"
-            tools:ignore="MissingClass" />
+
     </application>
 
 </manifest>
